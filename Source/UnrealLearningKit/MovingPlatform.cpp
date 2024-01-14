@@ -21,6 +21,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	MovePlatform(DeltaTime);
+	RotatePlatform(DeltaTime);
 }
 
 void AMovingPlatform::MovePlatform(float DeltaTime)
@@ -51,9 +52,7 @@ bool AMovingPlatform::ShouldPlatformReturn() const
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	FRotator currentRotation = GetActorRotation();
-	currentRotation.Yaw += speed * DeltaTime;
-	SetActorRotation(currentRotation);
+	AddActorLocalRotation(rotation * DeltaTime);
 }
 
 float AMovingPlatform::GetDistanceTravelled() const

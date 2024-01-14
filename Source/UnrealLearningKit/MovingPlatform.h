@@ -24,18 +24,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Moving")
 	FVector startLocation = FVector(0, 0, 0);
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Moving")
 	double distanceTravelled = 0;
-	UPROPERTY(EditAnywhere)
-	int speed = 10;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Moving")
 	FVector moveVelocity = FVector(100, 0, 0);
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Moving")
 	int maxDistance = 500;
-	bool ShouldPlatformRotate = false;
-	bool ShouldPlatformMove = true;
+
+	UPROPERTY(EditAnywhere, Category = "Rotating")
+	FRotator rotation = FRotator(0, 0, 0);
 	bool ShouldPlatformReturn() const;
 	void MovePlatform(float DeltaTime);
 	void RotatePlatform(float DeltaTime);
